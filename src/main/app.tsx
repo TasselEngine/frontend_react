@@ -5,7 +5,7 @@ import "./app.css";
 import { todo } from "../store/main";
 
 @observer
-export class Component extends React.Component<any, any>{
+export class Component extends React.Component<any, any> {
 
     public render() {
         return (
