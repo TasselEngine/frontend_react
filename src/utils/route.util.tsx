@@ -65,6 +65,7 @@ function SectionRoute(config: IRouteNode) {
         return !Comp ? content : (<Comp {...props}>{content}</Comp>);
     };
     RouteCache.set(config, component);
+    return component;
 }
 
 function buildRoutes(routes: IRouteNode[], props: any) {
