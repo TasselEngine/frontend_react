@@ -4,18 +4,62 @@ body {
     margin: 0px;
 }
 
+h2 {
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+}
+
 .tassel-layout-main{
     display: flex;
     justify-content: left;
+    font-family: "NativeCenturyGothic","Microsoft YaHei"
 }
 
 .tassel-layout-main .left{
-    width: 300px;
+    width: 360px;
     height: 100vh;
-    background-color:palevioletred;
     color:white;
 }
 
 .tassel-layout-main .right{
     flex: 1;
+}
+
+.layout-slider {
+    height: calc(100vh - 16px); 
+    margin-top:8px;
+    margin-left:8px;
+    /* -webkit-box-shadow: 0 0 16px #acacac; */
+    box-shadow: 0 0 16px #acacac;
+    background-color:palevioletred;
+    /* transform: translateX(0);
+    -ms-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -o-transform: translateX(0); */
+}
+
+.layout-content {
+    height: calc(100vh - 16px);
+    margin-top:8px;
+    margin-left:8px;
+    margin-right:8px;
+    box-shadow: 0 0 16px #acacac;
+    background-color:salmon;
+}
+
+.layout-slider .slider-inner {
+    height: calc(100% - 42px);
+    padding-top:30px;
+    text-align: center;
+}
+
+.layout-slider .main-icon{
+    height: 160px;
+    border-radius: 50%;
+}
+
+.layout-slider .name-title{
+    margin-top: 4px;
+    font-size: 14px;
 }

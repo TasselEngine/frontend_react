@@ -1,6 +1,7 @@
 const path = require("path");
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const webpack = require('webpack');
 
@@ -30,7 +31,11 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: "BWS-Demo",
             template: './index.html'
-        })
+        }),
+        new CopyWebpackPlugin([{
+            from: path.resolve(__dirname, "src/assets"),
+            to: path.resolve(__dirname, "dist/assets")
+        }])
     ],
     optimization: {
         splitChunks: {

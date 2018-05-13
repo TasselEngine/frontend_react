@@ -1,3 +1,5 @@
+import "./nomalize.css";
+import "./font.css";
 import "./layout.css";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -13,16 +15,22 @@ class TasselLeft extends React.Component<{}, {}> {
             backgroundColor: LayoutData.left.isCommon ? "#fff" : "#484848"
         };
         return (
-            <div>
-                {
-                    <ul style={styles}>
-                        {LayoutData.left.list.map((item, index) => (
-                            <li key={index}>
-                                <Link to={item.path}>{item.label}</Link>
-                            </li>
-                        ))}
-                    </ul>
-                }
+            <div className="layout-slider">
+                <div className="slider-inner ">
+                    <img className="main-icon" src="assets/img/icon.jpg" />
+                    <p className="name-title">
+                        <span >Big Mogician</span>
+                    </p>
+                    {
+                        <ul style={styles}>
+                            {LayoutData.left.list.map((item, index) => (
+                                <li key={index}>
+                                    <Link to={item.path}>{item.label}</Link>
+                                </li>
+                            ))}
+                        </ul>
+                    }
+                </div>
             </div>
         );
     }
@@ -37,7 +45,11 @@ export class TasselLayout extends React.Component<{}, {}> {
                 <div className="left">
                     <TasselLeft />
                 </div>
-                <div className="right">{this.props.children}</div>
+                <div className="right">
+                    <div className="layout-content">
+                        {this.props.children}
+                    </div>
+                </div>
             </div>
         );
     }
