@@ -13,7 +13,10 @@ export interface NavigeItem {
 const commonGroup: NavigeItem[] = [
     { path: "/", label: "Home" },
     { path: "/errors/notfound", label: "404" },
-    { path: "/manage", label: "Management" },
+    {
+        get path() { return "/" + Number((Math.random() * 1000).toFixed(2)) + "/manage?user=" + Math.random() * 1000; },
+        label: "Management"
+    },
 ];
 
 const manageGroup: NavigeItem[] = [

@@ -8,7 +8,7 @@ import { createRouterConfig, RouteCollection } from "../utils/route.util";
 
 const router = createRouterConfig([
     { path: "/", component: Main, exact: true },
-    { path: "/manage", component: Management },
+    { path: "/:uid/manage", component: Management },
     {
         path: "/errors", children: [
             { path: "/notfound", component: Error404 },

@@ -1,8 +1,9 @@
 import React from "react";
 import { LayoutData, LayoutType } from "../../store/layout";
 import { Mobx } from "../../utils/mobx.util";
+import { NavigationBase } from "../../utils/navigation.utils";
 
-export class Page404 extends React.Component<{}, {}> {
+export class Page404 extends NavigationBase {
 
     constructor(props: {}) {
         super(props);

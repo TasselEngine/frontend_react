@@ -2,11 +2,14 @@ import React from "react";
 import { MLabel } from "../../commons/labels/m-label";
 import { LayoutType, LayoutData } from "../../../store/layout";
 import { Mobx } from "../../../utils/mobx.util";
+import { NavigationBase } from "../../../utils/navigation.utils";
 
-export class TasselMain extends React.Component<any, any> {
+export class TasselMain extends NavigationBase {
 
     constructor(props: any) {
         super(props);
+        console.log(this.params);
+        console.log(this.queries);
     }
 
     componentWillMount() {
