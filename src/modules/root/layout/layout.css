@@ -47,7 +47,8 @@
     margin-right:8px;
     box-shadow: 0 0 16px #acacac;
     /* background-color:salmon; */
-    background-color: white
+    background-color: white;
+    padding:8px;
 }
 
 .slider-inner {
