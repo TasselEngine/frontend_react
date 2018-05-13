@@ -1,6 +1,5 @@
 import React from "react";
 import { LayoutData, LayoutType } from "../../store/layout";
-import { Mobx } from "../../utils/mobx.util";
 import { NavigationBase } from "../../utils/navigation.utils";
 
 export class TasselManage extends NavigationBase {

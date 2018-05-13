@@ -1,6 +1,5 @@
 import React from "react";
-import { BrowserRouter, Router, Route, Redirect, Link } from "react-router-dom";
-import { Mobx } from "../utils/mobx.util";
+import { BrowserRouter } from "react-router-dom";
 import { Main, Layout } from "./root";
 import { Management } from "./manage";
 import { Error404 } from "./errors";
