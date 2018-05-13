@@ -1,6 +1,5 @@
 import React from "react";
 import { MLabel } from "../../commons/labels/m-label";
-import { LayoutType, LayoutData } from "../../../store/layout";
 import { NavigationBase } from "../../../utils/navigation.utils";
 
 export class TasselMain extends NavigationBase {
@@ -11,7 +10,6 @@ export class TasselMain extends NavigationBase {
 
     componentWillMount() {
         console.log("main page mount");
-        LayoutData.left.changeType(LayoutType.Common);
     }
 
     render() {
