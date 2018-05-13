@@ -1,8 +1,7 @@
 import React from "react";
-import { LayoutData, LayoutType } from "../../store/layout";
-import { NavigationBase } from "../../utils/navigation.utils";
+import { ManagementBase } from "../../utils/navigation.utils";
 
-export class TasselManage extends NavigationBase {
+export class TasselManage extends ManagementBase {
 
     constructor(props: any) {
         super(props);
@@ -10,7 +9,6 @@ export class TasselManage extends NavigationBase {
 
     componentWillMount() {
         console.log("manage page mount");
-        LayoutData.left.changeType(LayoutType.Management);
     }
 
     render() {

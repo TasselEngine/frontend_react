@@ -1,5 +1,6 @@
 import React from "react";
 import * as H from "history";
+import { LayoutType, LayoutData } from "../store/layout";
 
 export interface NavigationProps {
     history: H.History;
@@ -27,9 +28,18 @@ export class NavigationBase<P = {}, S = {}, SS = never> extends React.Component<
     private _query = {};
     protected get queries() { return this._query; }
 
-    constructor(props: any) {
+    constructor(props: any, protected type: LayoutType = LayoutType.Common) {
         super(props);
         this._query = cutQueries(this.props.location.search);
+        LayoutData.left.changeType(type);
+    }
+
+}
+
+export class ManagementBase<P = {}, S = {}, SS = never> extends NavigationBase<(P & NavigationProps), S, SS> {
+
+    constructor(props: any, protected type: LayoutType = LayoutType.Management) {
+        super(props, type);
     }
 
 }
