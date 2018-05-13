@@ -30,7 +30,7 @@ export class CssResolver {
         return scope.toString();
     }
 
-    public select(name: string, enabled: boolean) {
+    public select(name: string, enabled = true) {
         const scope = new CssSelection(this);
         return scope.select(name, enabled);
     }
@@ -47,7 +47,7 @@ export class CssSelection {
 
     constructor(private context: CssResolver) { }
 
-    public select(name: string, enabled: boolean) {
+    public select(name: string, enabled = true) {
         const v = this.context.name(name);
         if (!v) throw new CssResolveError(`css className [${name}] is not found.`);
         this._container[this.context.name(name)] = enabled;

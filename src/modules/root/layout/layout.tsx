@@ -11,9 +11,9 @@ const { bind, select, map } = parse(csses);
 class TasselLeft extends React.Component<{}, {}> {
 
     render() {
-        // const mainStyle = select("layout-slider", true)
-        //     .select("common-style", LayoutData.left.isCommon)
+        // const mainStyle = select("common-style", LayoutData.left.isCommon)
         //     .select("manage-style", !LayoutData.left.isCommon)
+        //     .select("layout-slider")
         //     .toString();
         const mainStyle = map({
             "layout-slider": true,
