@@ -15,12 +15,12 @@
     flex: 1;
 }
 
-.manage-style{
+.dark-scope {
     color:#fff;
     background-color: #282828;
 }
 
-.common-style{
+.light-scope {
     color:#000;
     background-color: #fff;
 }
@@ -46,7 +46,8 @@
     margin-left:8px;
     margin-right:8px;
     box-shadow: 0 0 16px #acacac;
-    background-color:salmon;
+    /* background-color:salmon; */
+    background-color: white
 }
 
 .slider-inner {
@@ -63,6 +64,15 @@
 .name-title{
     margin-top: 4px;
     font-size: 14px;
+    color:#888;
+}
+
+.dark-scope .name-title{
+    color:#fff;
+}
+
+.light-scope .name-title{
+    color:#888;
 }
 
 .legend-title{
@@ -70,6 +80,15 @@
     margin-top: 8px;
     font-size: 32px;
     font-weight: 700;
+    color:#686868;
+}
+
+.light-scope .legend-title{
+    color:#686868;
+}
+
+.dark-scope .legend-title{
+    color:#fff;
 }
 
 .slider-ul {

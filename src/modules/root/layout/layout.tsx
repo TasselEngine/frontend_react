@@ -11,14 +11,14 @@ const { bind, select, map } = parse(csses);
 class TasselLeft extends React.Component<{}, {}> {
 
     render() {
-        // const mainStyle = select("common-style", LayoutData.left.isCommon)
-        //     .select("manage-style", !LayoutData.left.isCommon)
+        // const mainStyle = select("light-scope", LayoutData.left.isCommon)
+        //     .select("dark-scope", !LayoutData.left.isCommon)
         //     .select("layout-slider")
         //     .toString();
         const mainStyle = map({
             "layout-slider": true,
-            "common-style": LayoutData.left.isCommon,
-            "manage-style": !LayoutData.left.isCommon
+            "light-scope": LayoutData.left.isCommon,
+            "dark-scope": !LayoutData.left.isCommon
         });
         return (
             <div className={mainStyle}>
@@ -28,7 +28,7 @@ class TasselLeft extends React.Component<{}, {}> {
                         <span >Big Mogician</span>
                     </p>
                     <p className={bind("legend-title")} title="The personal blog created by Big Mogician.">
-                        <b >大白痴同学😱</b>
+                        <b>大白痴同学😱</b>
                     </p>
                     {
                         <ul className={bind("slider-ul")}>
