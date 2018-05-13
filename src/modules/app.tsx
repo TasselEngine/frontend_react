@@ -4,7 +4,7 @@ import { Mobx } from "../utils/mobx.util";
 import { Main, Layout } from "./root";
 import { Management } from "./manage";
 import { Error404 } from "./errors";
-import { IRouter, SectionRoute, createRouterConfig } from "../utils/route.util";
+import { createRouterConfig, RouteCollection } from "../utils/route.util";
 
 const router = createRouterConfig([
     { path: "/", component: Main, exact: true },
@@ -25,12 +25,7 @@ export class App extends React.Component {
         return (
             <BrowserRouter >
                 <Layout>
-                    {/* <Route exact path='/' component={Main} />
-                    <Route path="/manage" component={Management} />
-                    <Route path="/errors" >
-                        <Route path="/errors/notfound" component={Error404} />
-                    </Route> */}
-                    {router.routes.map(i => (<SectionRoute key={i.key} config={i} />))}
+                    <RouteCollection config={router} />
                 </Layout>
             </BrowserRouter>
         );

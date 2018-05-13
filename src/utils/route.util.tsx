@@ -25,7 +25,7 @@ export function createRouterConfig(routes: IRouteNode[]) {
     return { routes: recRoutes(routes) };
 }
 
-export class SubRouteContainer extends React.Component<{ routes: IRouteNode[] }> {
+class SubRouteContainer extends React.Component<{ routes: IRouteNode[] }> {
     render() {
         return (
             <React.Fragment>
@@ -37,7 +37,7 @@ export class SubRouteContainer extends React.Component<{ routes: IRouteNode[] }>
     }
 }
 
-export class SectionRoute extends React.Component<{ config: IRouteNode }> {
+class SectionRoute extends React.Component<{ config: IRouteNode }> {
     render() {
         const route = this.props.config;
         const Comp: any = route.component;
@@ -49,6 +49,12 @@ export class SectionRoute extends React.Component<{ config: IRouteNode }> {
                     <Comp {...props} routes={route.children} />
                 )} />
         );
+    }
+}
+
+export class RouteCollection extends React.Component<{ config: IRouter }> {
+    render() {
+        return this.props.config.routes.map(i => (<SectionRoute key={i.key} config={i} />));
     }
 }
 
