@@ -1,7 +1,7 @@
 import React from "react";
-import { MLabel } from "../commons/labels/m-label";
-import { LayoutType, LayoutData } from "../../store/layout";
-import { Mobx } from "../../utils/mobx.util";
+import { MLabel } from "../../commons/labels/m-label";
+import { LayoutType, LayoutData } from "../../../store/layout";
+import { Mobx } from "../../../utils/mobx.util";
 
 export class TasselMain extends React.Component<any, any> {
 

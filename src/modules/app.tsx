@@ -1,22 +1,37 @@
 import React from "react";
 import { BrowserRouter, Router, Route, Redirect, Link } from "react-router-dom";
-import { TasselMain } from "./main/main";
-import { TasselLayout } from "./main/layout";
-import { Page404 } from "./errors/404";
-import { TasselManage } from "./manage/manage";
 import { Mobx } from "../utils/mobx.util";
+import { Main, Layout } from "./root";
+import { Management } from "./manage";
+import { Error404 } from "./errors";
+import { IRouter, SectionRoute, createRouterConfig } from "../utils/route.util";
 
-export class App extends React.Component<{}, {}> {
+const router = createRouterConfig([
+    { path: "/", component: Main, exact: true },
+    { path: "/manage", component: Management },
+    {
+        path: "/errors", children: [
+            { path: "/notfound", component: Error404 },
+            { path: "/baderror", component: Error404, isolate: true },
+        ]
+    },
+]);
+
+console.log(router);
+
+export class App extends React.Component {
 
     render() {
-        console.log("app refresh");
         return (
             <BrowserRouter >
-                <TasselLayout>
-                    <Route exact path='/' component={TasselMain} />
-                    <Route path="/manage" component={TasselManage} />
-                    <Route path="/error" component={Page404} />
-                </TasselLayout>
+                <Layout>
+                    {/* <Route exact path='/' component={Main} />
+                    <Route path="/manage" component={Management} />
+                    <Route path="/errors" >
+                        <Route path="/errors/notfound" component={Error404} />
+                    </Route> */}
+                    {router.routes.map(i => (<SectionRoute key={i.key} config={i} />))}
+                </Layout>
             </BrowserRouter>
         );
     }

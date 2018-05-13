@@ -12,13 +12,13 @@ export interface NavigeItem {
 
 const commonGroup: NavigeItem[] = [
     { path: "/", label: "Home" },
-    { path: "/error", label: "Error" },
+    { path: "/errors/notfound", label: "404" },
     { path: "/manage", label: "Management" },
 ];
 
 const manageGroup: NavigeItem[] = [
     { path: "/", label: "Home" },
-    { path: "/error", label: "Error" },
+    { path: "/errors/notfound", label: "404" },
 ];
 
 export class LeftContainer {

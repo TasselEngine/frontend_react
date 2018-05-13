@@ -1,8 +1,8 @@
 import "./layout.css";
 import React from "react";
 import { Link } from "react-router-dom";
-import { LayoutData, LeftContainer } from "../../store/layout";
-import { Mobx } from "../../utils/mobx.util";
+import { LayoutData, LeftContainer } from "../../../store/layout";
+import { Mobx } from "../../../utils/mobx.util";
 
 @Mobx()
 class TasselLeft extends React.Component<{}, {}> {
