@@ -62,6 +62,12 @@ module.exports = {
             },
             {
                 test: /\.css$/,
+                exclude: /assets\/css/,
+                loader: ['style-loader', 'css-loader?modules&localIdentName=[name]-[hash:base64:12]']
+            },
+            {
+                test: /\.css$/,
+                include: /assets\/css/,
                 loader: ['style-loader', 'css-loader']
             }
         ]

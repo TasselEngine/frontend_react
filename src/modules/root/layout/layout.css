@@ -1,37 +1,38 @@
 
-body {
-    display: block;
-    margin: 0px;
-}
-
-h2 {
-    -webkit-margin-before: 0em;
-    -webkit-margin-after: 0em;
-}
-
 .tassel-layout-main{
     display: flex;
     justify-content: left;
-    font-family: "NativeCenturyGothic","Microsoft YaHei"
+    font-family: "NativeCenturyGothic","Microsoft YaHei";
+    background: #cecece;
 }
 
-.tassel-layout-main .left{
+ .left{
     width: 360px;
     height: 100vh;
-    color:white;
 }
 
-.tassel-layout-main .right{
+.right{
     flex: 1;
 }
 
+.manage-style{
+    color:#fff;
+    background-color: #282828;
+}
+
+.common-style{
+    color:#000;
+    background-color: #fff;
+}
+
 .layout-slider {
+    transition: 0.8s;
     height: calc(100vh - 16px); 
     margin-top:8px;
     margin-left:8px;
     /* -webkit-box-shadow: 0 0 16px #acacac; */
     box-shadow: 0 0 16px #acacac;
-    background-color:palevioletred;
+    /* background-color:palevioletred; */
     /* transform: translateX(0);
     -ms-transform: translateX(0);
     -moz-transform: translateX(0);
@@ -48,18 +49,35 @@ h2 {
     background-color:salmon;
 }
 
-.layout-slider .slider-inner {
+.slider-inner {
     height: calc(100% - 42px);
     padding-top:30px;
     text-align: center;
 }
 
-.layout-slider .main-icon{
+.main-icon{
     height: 160px;
     border-radius: 50%;
 }
 
-.layout-slider .name-title{
+.name-title{
     margin-top: 4px;
     font-size: 14px;
+}
+
+.legend-title{
+    margin-left: 18px;
+    margin-top: 8px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.slider-ul {
+    margin-top: 24px;
+}
+
+.slider-ul p {
+    line-height: 2em;
+    font-size: 20px;
+    font-weight: 700;
 }

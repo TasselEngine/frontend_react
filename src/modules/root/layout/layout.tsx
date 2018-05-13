@@ -1,31 +1,42 @@
-import "./nomalize.css";
-import "./font.css";
-import "./layout.css";
+import csses from "./layout.css";
 import React from "react";
 import { Link } from "react-router-dom";
 import { LayoutData, LeftContainer } from "../../../store/layout";
 import { Mobx } from "../../../utils/mobx.util";
+import { parse } from "../../../utils/css.util";
+
+const { bind, select, map } = parse(csses);
 
 @Mobx()
 class TasselLeft extends React.Component<{}, {}> {
 
     render() {
-        const styles = {
-            color: LayoutData.left.isCommon ? "#000" : "#fff",
-            backgroundColor: LayoutData.left.isCommon ? "#fff" : "#484848"
-        };
+        // const mainStyle = select("layout-slider", true)
+        //     .select("common-style", LayoutData.left.isCommon)
+        //     .select("manage-style", !LayoutData.left.isCommon)
+        //     .toString();
+        const mainStyle = map({
+            "layout-slider": true,
+            "common-style": LayoutData.left.isCommon,
+            "manage-style": !LayoutData.left.isCommon
+        });
         return (
-            <div className="layout-slider">
-                <div className="slider-inner ">
-                    <img className="main-icon" src="assets/img/icon.jpg" />
-                    <p className="name-title">
+            <div className={mainStyle}>
+                <div className={bind("slider-inner")}>
+                    <img className={bind("main-icon")} src="assets/img/icon.jpg" />
+                    <p className={bind("name-title")}>
                         <span >Big Mogician</span>
                     </p>
+                    <p className={bind("legend-title")} title="The personal blog created by Big Mogician.">
+                        <b >大白痴同学😱</b>
+                    </p>
                     {
-                        <ul style={styles}>
+                        <ul className={bind("slider-ul")}>
                             {LayoutData.left.list.map((item, index) => (
                                 <li key={index}>
-                                    <Link to={item.path}>{item.label}</Link>
+                                    <p>
+                                        <Link to={item.path}>{item.label}</Link>
+                                    </p>
                                 </li>
                             ))}
                         </ul>
@@ -41,12 +52,12 @@ export class TasselLayout extends React.Component<{}, {}> {
 
     render() {
         return (
-            <div className="tassel-layout-main">
-                <div className="left">
+            <div className={bind("tassel-layout-main")}>
+                <div className={bind("left")}>
                     <TasselLeft />
                 </div>
-                <div className="right">
-                    <div className="layout-content">
+                <div className={bind("right")}>
+                    <div className={bind("layout-content")}>
                         {this.props.children}
                     </div>
                 </div>
