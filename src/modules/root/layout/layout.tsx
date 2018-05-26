@@ -1,4 +1,4 @@
-import csses from "./layout.css";
+import csses from "./layout.scss";
 import React from "react";
 import { Link } from "react-router-dom";
 import { LayoutData, LeftContainer } from "../../../store/layout";
