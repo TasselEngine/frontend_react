@@ -81,8 +81,6 @@ export class StoreComponent<P= {}, S= {}, SS = never> extends React.Component<P,
 
 export class Stores extends React.Component {
 
-    public static add(type: IConstructor<any>) { }
-
     render() {
         return (<Provider {..._stores}>{this.props.children}</Provider>);
     }
