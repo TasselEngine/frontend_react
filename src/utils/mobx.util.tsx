@@ -2,7 +2,6 @@ import { default as uuid } from "uuid/v4";
 import { observable, computed, action } from "mobx";
 import { observer, Provider, inject } from "mobx-react";
 import React from "react";
-import { ENGINE_METHOD_STORE } from "constants";
 
 class InjectableStoreContainer {
 
