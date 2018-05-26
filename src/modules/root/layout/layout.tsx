@@ -11,10 +11,6 @@ const { bind, select, map } = parse(csses);
 class TasselLeft extends React.Component<{}, {}> {
 
     render() {
-        // const mainStyle = select("light-scope", LayoutData.left.isCommon)
-        //     .select("dark-scope", !LayoutData.left.isCommon)
-        //     .select("layout-slider")
-        //     .toString();
         const mainStyle = map({
             "layout-slider": true,
             "light-scope": LayoutData.left.isCommon,

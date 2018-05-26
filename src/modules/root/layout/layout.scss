@@ -4,57 +4,39 @@
     justify-content: left;
     font-family: "NativeCenturyGothic","Microsoft YaHei";
     background: #cecece;
-}
 
- .left{
-    width: 360px;
-    height: 100vh;
-}
+    .left{
+        width: 360px;
+        height: 100vh;
+    }
 
-.right{
-    flex: 1;
-}
+    .right{
+        flex: 1;
+    }
 
-.dark-scope {
-    color:#fff;
-    background-color: #282828;
-}
+    .layout-slider {
+        transition: 0.8s;
+        height: calc(100vh - 10px); 
+        margin-top:5px;
+        margin-left:5px;
+        box-shadow: 0 0 10px #acacac;
 
-.light-scope {
-    color:#000;
-    background-color: #fff;
-}
-
-.layout-slider {
-    transition: 0.8s;
-    height: calc(100vh - 16px); 
-    margin-top:8px;
-    margin-left:8px;
-    /* -webkit-box-shadow: 0 0 16px #acacac; */
-    box-shadow: 0 0 16px #acacac;
-    /* background-color:palevioletred; */
-    /* transform: translateX(0);
-    -ms-transform: translateX(0);
-    -moz-transform: translateX(0);
-    -webkit-transform: translateX(0);
-    -o-transform: translateX(0); */
-}
-
-.layout-content {
-    height: calc(100vh - 16px);
-    margin-top:8px;
-    margin-left:8px;
-    margin-right:8px;
-    box-shadow: 0 0 16px #acacac;
-    /* background-color:salmon; */
-    background-color: white;
-    padding:8px;
-}
-
-.slider-inner {
-    height: calc(100% - 42px);
-    padding-top:30px;
-    text-align: center;
+        .slider-inner {
+            height: calc(100% - 42px);
+            padding-top:30px;
+            text-align: center;
+        }
+    }
+    
+    .layout-content {
+        height: calc(100vh - 10px);
+        margin-top:5px;
+        margin-left:10px;
+        margin-right:5px;
+        box-shadow: 0 0 10px #acacac;
+        background-color: white;
+        padding:5px;
+    }
 }
 
 .main-icon{
@@ -68,28 +50,12 @@
     color:#888;
 }
 
-.dark-scope .name-title{
-    color:#fff;
-}
-
-.light-scope .name-title{
-    color:#888;
-}
-
 .legend-title{
     margin-left: 18px;
     margin-top: 8px;
     font-size: 32px;
     font-weight: 700;
     color:#686868;
-}
-
-.light-scope .legend-title{
-    color:#686868;
-}
-
-.dark-scope .legend-title{
-    color:#fff;
 }
 
 .slider-ul {
@@ -100,4 +66,27 @@
     line-height: 2em;
     font-size: 20px;
     font-weight: 700;
+}
+
+.dark-scope {
+    color:#fff;
+    background-color: #282828;
+    .name-title{
+        color:#fff;
+    }
+    .legend-title{
+        color:#fff;
+    }
+}
+
+.light-scope {
+    color:#000;
+    background-color: #fff;
+    .name-title{
+        color:#888;
+    }
+    .legend-title{
+        color:#686868;
+    }
+    
 }
