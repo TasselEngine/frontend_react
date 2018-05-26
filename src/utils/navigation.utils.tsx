@@ -1,7 +1,7 @@
 import React from "react";
 import * as H from "history";
 import { LayoutType, LeftContainer } from "@stores/layout";
-import { StoreComponent, getStore } from "@utils/mobx.util";
+import { StoreComponent, getStore } from "./mobx.util";
 
 /**
  * Navigation Properties Struct

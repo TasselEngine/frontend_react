@@ -3,8 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Main, Layout } from "@modules/root";
 import { Management } from "@modules/manage";
 import { Error404 } from "@modules/errors";
-import { createRouterConfig, RouteCollection } from "@utils/route.util";
-import { Stores } from "@utils/mobx.util";
+import { Stores, createRouterConfig, RouteCollection } from "@utils";
 
 const router = createRouterConfig([
     { path: "/", component: Main },

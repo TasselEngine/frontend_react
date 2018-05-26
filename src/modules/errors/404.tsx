@@ -1,5 +1,5 @@
 import React from "react";
-import { NavigationBase } from "@utils/navigation.utils";
+import { NavigationBase } from "@utils";
 
 export class Page404 extends NavigationBase {
 

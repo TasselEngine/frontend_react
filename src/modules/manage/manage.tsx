@@ -1,5 +1,5 @@
 import React from "react";
-import { ManagementBase } from "@utils/navigation.utils";
+import { ManagementBase } from "@utils";
 
 export class TasselManage extends ManagementBase {
 

@@ -1,4 +1,4 @@
-import { Reactive, Computed, Action, Store, Observable } from "@utils/mobx.util";
+import { Reactive, Computed, Action, Store, Observable } from "@utils";
 
 export enum LayoutType {
     Common = 0,

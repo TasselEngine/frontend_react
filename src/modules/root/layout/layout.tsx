@@ -2,8 +2,7 @@ import csses from "./layout.scss";
 import React from "react";
 import { Link } from "react-router-dom";
 import { LeftContainer } from "@stores/layout";
-import { StoreComponent, Reactive } from "@utils/mobx.util";
-import { parse } from "@utils/css.util";
+import { parse, StoreComponent, Reactive } from "@utils";
 
 const { bind, select, map } = parse(csses);
 

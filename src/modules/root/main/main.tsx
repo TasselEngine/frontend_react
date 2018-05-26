@@ -1,6 +1,6 @@
 import React from "react";
 import { MLabel } from "@modules/commons/labels/m-label";
-import { NavigationBase } from "@utils/navigation.utils";
+import { NavigationBase } from "@utils";
 
 export class TasselMain extends NavigationBase {
 
