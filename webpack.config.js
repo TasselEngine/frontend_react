@@ -49,7 +49,12 @@ module.exports = {
         }
     },
     resolve: {
-        extensions: [".js", ".jsx", ".ts", ".tsx"]
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+        alias: {
+            "@utils": path.resolve(__dirname, "./src/utils"),
+            "@modules": path.resolve(__dirname, "./src/modules"),
+            "@stores": path.resolve(__dirname, "./src/store")
+        }
     },
     module: {
         rules: [

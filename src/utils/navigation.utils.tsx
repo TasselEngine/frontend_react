@@ -1,7 +1,7 @@
 import React from "react";
 import * as H from "history";
-import { LayoutType, LeftContainer } from "../store/layout";
-import { StoreComponent, getStore } from "./mobx.util";
+import { LayoutType, LeftContainer } from "@stores/layout";
+import { StoreComponent, getStore } from "@utils/mobx.util";
 
 /**
  * Navigation Properties Struct
@@ -54,7 +54,10 @@ export class NavigationBase<P = {}, S = {}, SS = never> extends React.Component<
     constructor(props: any, protected type: LayoutType = LayoutType.Common) {
         super(props);
         this._query = cutQueries(this.props.location.search);
-        getStore(LeftContainer).changeType(type);
+        const left = getStore(LeftContainer);
+        if (left) {
+            left.changeType(type);
+        }
     }
 
 }

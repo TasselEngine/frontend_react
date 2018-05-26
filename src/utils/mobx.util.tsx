@@ -36,11 +36,11 @@ class InjectableStoreContainer {
      * @description
      * @author Big Mogician
      * @param {IConstructor<any>} type constructor
-     * @returns  {string?} name
+     * @returns  {string|null} name
      * @memberof InjectableStoreContainer
      */
-    public get(type: IConstructor<any>): string | undefined {
-        return this.relations.get(type);
+    public get(type: IConstructor<any>): string | null {
+        return this.relations.get(type) || null;
     }
 
 }
@@ -62,11 +62,11 @@ export type IStoreClass<T> = IConstructor<T>;
  * @export
  * @template T
  * @param {IConstructor<T>} type the store constructor
- * @returns  {T} instance
+ * @returns  {T|null} instance
  */
-export function getStore<T>(type: IConstructor<T>): T {
+export function getStore<T>(type: IConstructor<T>): T | null {
     const key = _relations.get(type) as string;
-    return _stores[key];
+    return !!key ? _stores[key] : null;
 }
 
 /**
@@ -101,7 +101,7 @@ export function Reactive(...stores: IStoreClass<any>[]) {
  * @returns  decorator
  */
 export function Store(name?: string) {
-    return function <T>(target: IConstructor<T>, propertykey?: string, descpt?: any) {
+    return function <T>(target: IConstructor<T>) {
         const selector = name || uuid();
         _relations.add(target, selector);
         _stores[selector] = new target();
@@ -138,7 +138,7 @@ export class StoreComponent<P= {}, S= {}, SS = never> extends React.Component<P,
 
     private _storeMaps!: Map<IConstructor<any>, any>;
     /** get store with it's constructor */
-    protected getStore<T>(type: IConstructor<T>): T { return this._storeMaps.get(type); }
+    protected getStore<T>(type: IConstructor<T>): T { return this._storeMaps.get(type) || null; }
 
     constructor(props: any) {
         super(props);
