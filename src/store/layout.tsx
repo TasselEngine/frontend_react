@@ -1,4 +1,4 @@
-import { Reactive, Computed, Action } from "../utils/mobx.util";
+import { Reactive, Computed, Action, Store, Observable } from "../utils/mobx.util";
 
 export enum LayoutType {
     Common = 0,
@@ -28,9 +28,10 @@ const manageGroup: NavigeItem[] = [
     { path: "/46thbserhse", label: "Otherwise" },
 ];
 
+@Store()
 export class LeftContainer {
 
-    @Reactive()
+    @Observable()
     private type: LayoutType = LayoutType.Common;
 
     @Computed()
@@ -45,8 +46,4 @@ export class LeftContainer {
     }
 
 }
-
-export const LayoutData = {
-    left: new LeftContainer()
-};
 

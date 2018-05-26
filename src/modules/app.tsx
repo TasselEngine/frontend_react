@@ -4,6 +4,7 @@ import { Main, Layout } from "./root";
 import { Management } from "./manage";
 import { Error404 } from "./errors";
 import { createRouterConfig, RouteCollection } from "../utils/route.util";
+import { Stores } from "../utils/mobx.util";
 
 const router = createRouterConfig([
     { path: "/", component: Main },
@@ -23,9 +24,11 @@ export class App extends React.Component {
     render() {
         return (
             <BrowserRouter >
-                <Layout>
-                    <RouteCollection config={router} />
-                </Layout>
+                <Stores>
+                    <Layout>
+                        <RouteCollection config={router} />
+                    </Layout>
+                </Stores>
             </BrowserRouter>
         );
     }

@@ -3,18 +3,6 @@ import { default as uuid } from "uuid/v4";
 import { Route, Redirect, Switch } from "react-router-dom";
 
 /**
- * Represent the constructor of a class.
- * @description
- * @author Big Mogician
- * @export
- * @interface IConstroctor
- * @template T
- */
-export interface IConstroctor<T> {
-    new(...args: any[]): T;
-}
-
-/**
  * Represent the interface struct of Tassel Router
  * @description
  * @author Big Mogician
@@ -38,12 +26,12 @@ export interface IRouter {
 export interface IRoute<P, S, T> {
     key?: string;
     path?: string;
-    component?: IConstroctor<React.Component<P, S, T>>;
+    component?: IConstructor<React.Component<P, S, T>>;
     children?: IRouteNode[];
     exact?: boolean;
     isolate?: boolean;
     redirect?: string;
-    otherwise?: IConstroctor<React.Component<P, S, T>>;
+    otherwise?: IConstructor<React.Component<P, S, T>>;
 }
 
 /** Represent the interface struct of Tassel Route */
@@ -188,7 +176,7 @@ function recRoutes(routes: IRouteNode[], current?: IRouteNode, parent?: IRouteNo
  * @param {boolean} [isRedirect=false] is redirect component(default is false)
  * @returns {(string | undefined)} final path or redirect path
  */
-function connectPath(r?: IRouteNode, parent?: IRouteNode, isRedirect: boolean = false): string|undefined {
+function connectPath(r?: IRouteNode, parent?: IRouteNode, isRedirect: boolean = false): string | undefined {
     if (isRedirect) {
         return (!parent || !(r && r.redirect)) ?
             (r && r.redirect) :

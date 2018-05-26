@@ -1,20 +1,21 @@
 import csses from "./layout.scss";
 import React from "react";
 import { Link } from "react-router-dom";
-import { LayoutData, LeftContainer } from "../../../store/layout";
-import { Mobx } from "../../../utils/mobx.util";
+import { LeftContainer } from "../../../store/layout";
+import { StoreComponent, Reactive } from "../../../utils/mobx.util";
 import { parse } from "../../../utils/css.util";
 
 const { bind, select, map } = parse(csses);
 
-@Mobx()
-class TasselLeft extends React.Component<{}, {}> {
+@Reactive(LeftContainer)
+class TasselLeft extends StoreComponent {
 
     render() {
+        const data = this.getStore(LeftContainer);
         const mainStyle = map({
             "layout-slider": true,
-            "light-scope": LayoutData.left.isCommon,
-            "dark-scope": !LayoutData.left.isCommon
+            "light-scope": data.isCommon,
+            "dark-scope": !data.isCommon
         });
         return (
             <div className={mainStyle}>
@@ -28,7 +29,7 @@ class TasselLeft extends React.Component<{}, {}> {
                     </p>
                     {
                         <ul className={bind("slider-ul")}>
-                            {LayoutData.left.list.map((item, index) => (
+                            {data.list.map((item, index) => (
                                 <li key={index}>
                                     <p>
                                         <Link to={item.path}>{item.label}</Link>
