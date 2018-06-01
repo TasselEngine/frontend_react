@@ -1,7 +1,6 @@
 import React from "react";
 import css from "./main.scss";
 import { NavigationBase, parse } from "@utils";
-import { MLabel } from "@modules/commons/labels/m-label";
 import { Waterfall } from "@modules/commons/waters";
 import { Card } from "@modules/commons/cards";
 
@@ -51,7 +50,6 @@ export class TasselMain extends NavigationBase {
         const posts = this.postsProvide();
         return (
             <div>
-                <MLabel value={"123456"} color="red"></MLabel>
                 <Waterfall data={data} datas={posts} template={template} />
             </div>
         );
