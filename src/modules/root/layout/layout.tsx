@@ -27,17 +27,15 @@ class TasselLeft extends StoreComponent {
                     <p className={bind("legend-title")} title="The personal blog created by Big Mogician.">
                         <b>大白痴同学😱</b>
                     </p>
-                    {
-                        <ul className={bind("slider-ul")}>
-                            {this.leftState.list.map((item, index) => (
-                                <li key={index}>
-                                    <p>
-                                        <Link to={item.path}>{item.label}</Link>
-                                    </p>
-                                </li>
-                            ))}
-                        </ul>
-                    }
+                    <ul className={bind("slider-ul")}>
+                        {this.leftState.list.map((item, index) => (
+                            <li key={index}>
+                                <p>
+                                    <Link to={item.path}>{item.label}</Link>
+                                </p>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </div>
         );

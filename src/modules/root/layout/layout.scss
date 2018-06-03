@@ -25,6 +25,21 @@
           font-size: 14px;
           color: #888;
         }
+        .legend-title {
+          margin-left: 18px;
+          margin-top: 8px;
+          font-size: 32px;
+          font-weight: 700;
+          color: #686868;
+        }
+        .slider-ul {
+          margin-top: 24px;
+          p {
+            line-height: 2em;
+            font-size: 20px;
+            font-weight: 700;
+          }
+        }
       }
     }
   }
@@ -44,24 +59,6 @@
       box-shadow: 0 0 10px transparent;
     }
   }
-}
-
-.legend-title {
-  margin-left: 18px;
-  margin-top: 8px;
-  font-size: 32px;
-  font-weight: 700;
-  color: #686868;
-}
-
-.slider-ul {
-  margin-top: 24px;
-}
-
-.slider-ul p {
-  line-height: 2em;
-  font-size: 20px;
-  font-weight: 700;
 }
 
 .dark-scope {
