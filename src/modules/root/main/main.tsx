@@ -1,6 +1,6 @@
 import React from "react";
 import css from "./main.scss";
-import { NavigationBase, parse, TransparentPage } from "@utils";
+import { NavigationBase, parse, TransparentPage, Reactive } from "@utils";
 import { Waterfall } from "@modules/commons/waters";
 import { Card } from "@modules/commons/cards";
 
@@ -35,6 +35,7 @@ const template = (props: { data: IModel }) => (
     </Card>
 );
 
+@Reactive()
 export class TasselMain extends TransparentPage {
 
     constructor(props: any) {

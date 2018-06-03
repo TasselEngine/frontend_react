@@ -2,7 +2,7 @@ import csses from "./layout.scss";
 import React from "react";
 import { Link } from "react-router-dom";
 import { LeftContainer, PageState } from "@stores/layout";
-import { parse, StoreComponent, Reactive } from "@utils";
+import { parse, StoreComponent, Reactive, ReactiveComponent, DEBUG, AlwaysUpdate } from "@utils";
 
 const { bind, select, map } = parse(csses);
 
@@ -46,14 +46,18 @@ class TasselLeft extends StoreComponent {
 }
 
 @Reactive(PageState)
+@AlwaysUpdate()
 export class TasselLayout extends StoreComponent {
 
-    private pageState: PageState = this.getStore(PageState);
+    private get pageState(): PageState { return this.getStore(PageState); }
 
     render() {
+        console.log(this.props);
+        DEBUG();
+        console.log("render");
         const contentClass = map({
             'layout-content': true,
-            'layout-content-transparent': this.pageState && this.pageState.isTransparent
+            'layout-content-transparent': this.pageState.isTransparent
         });
         return (
             <div className={bind("tassel-layout-main")}>

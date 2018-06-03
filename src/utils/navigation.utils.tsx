@@ -48,8 +48,9 @@ export interface NavigationProps {
 export class NavigationBase<P = {}, S = {}, SS = never> extends TasselComponent<(P & NavigationProps), S, SS> {
 
     private _query = {};
-    private _leftState: LeftContainer = this.getStore(LeftContainer);
-    private _pageState: PageState = this.getStore(PageState);
+
+    private _$leftState = this.getStore(LeftContainer);
+    private _$pageState = this.getStore(PageState);
 
     protected get queries() { return this._query; }
     protected get params() { return this.props.match.params; }
@@ -62,11 +63,11 @@ export class NavigationBase<P = {}, S = {}, SS = never> extends TasselComponent<
     }
 
     protected changePageType(state: LayoutType) {
-        this._leftState && this._leftState.changeType(state);
+        this._$leftState.changeType(state);
     }
 
     protected changeBackgroundState(state: PageBackground) {
-        this._pageState && this._pageState.changeBackground(state);
+        this._$pageState.changeBackground(state);
     }
 
 }

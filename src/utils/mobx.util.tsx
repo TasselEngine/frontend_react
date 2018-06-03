@@ -1,6 +1,6 @@
 import { default as uuid } from "uuid/v4";
-import { observable, computed, action } from "mobx";
-import { observer, Provider, inject } from "mobx-react";
+import { observable, computed, action, trace } from "mobx";
+import { observer, Provider, inject, Observer } from "mobx-react";
 import React from "react";
 
 /**
@@ -27,6 +27,7 @@ class InjectableStoreContainer {
         if (this.relations.get(type)) {
             throw new Error("duplicate store.");
         } else {
+            console.log(`add inject [${name}] : [${type.name}]`);
             this.relations.set(type, name);
         }
     }
@@ -90,6 +91,12 @@ export function Reactive(...stores: IStoreClass<any>[]) {
     };
 }
 
+export function AlwaysUpdate() {
+    return function <T>(target: IConstructor<T>) {
+        target.prototype.shouldComponentUpdate = () => true;
+    };
+}
+
 /**
  * Store decorator factory
  * ---
@@ -121,6 +128,10 @@ export function Action() {
     return action;
 }
 
+export const ReactiveComponent = Observer;
+
+export const DEBUG = trace;
+
 /**
  * Component with stores
  * ---
@@ -144,10 +155,7 @@ export class StoreComponent<P= {}, S= {}, SS = never> extends React.Component<P,
 
     /** get store with it's constructor */
     protected getStore<T>(type: IConstructor<T>): T {
-        if (!this._storeMaps) {
-            return getStore(type) as T;
-        }
-        return this._storeMaps.get(type) || undefined;
+        return getStore(type) as T;
     }
 
 }
