@@ -93,7 +93,10 @@ export function Reactive(...stores: IStoreClass<any>[]) {
 
 export function AlwaysUpdate() {
     return function <T>(target: IConstructor<T>) {
-        target.prototype.shouldComponentUpdate = () => true;
+        const oldFunc = target.prototype.shouldComponentUpdate;
+        target.prototype.shouldComponentUpdate = function () {
+            return (oldFunc && oldFunc.bind(this)()) || true;
+        };
     };
 }
 
