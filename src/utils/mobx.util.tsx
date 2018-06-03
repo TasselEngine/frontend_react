@@ -78,7 +78,7 @@ export function getStore<T>(type: IConstructor<T>): T | undefined {
  * @author Big Mogician
  * @export
  * @param {...IStoreClass<any>[]} stores stores to be injected
- * @returns  decorator
+ * @returns  decorator for class
  */
 export function Reactive(...stores: IStoreClass<any>[]) {
     return function <T>(target: IConstructor<T>) {
@@ -91,12 +91,24 @@ export function Reactive(...stores: IStoreClass<any>[]) {
     };
 }
 
-export function AlwaysUpdate() {
+/**
+ * Make component update as more as possible.
+ * @description
+ * @authorBig Mogician
+ * @export
+ * @param {boolean} extend extends the old shouldComponentUpdate feature or not.
+ * @returns decorator for class
+ */
+export function AlwaysUpdate(extend: boolean = true) {
     return function <T>(target: IConstructor<T>) {
-        const oldFunc = target.prototype.shouldComponentUpdate;
-        target.prototype.shouldComponentUpdate = function () {
-            return (oldFunc && oldFunc.bind(this)()) || true;
-        };
+        if (!extend) {
+            target.prototype.shouldComponentUpdate = () => true;
+        } else {
+            const oldFunc = target.prototype.shouldComponentUpdate;
+            target.prototype.shouldComponentUpdate = function () {
+                return (oldFunc && oldFunc.bind(this)()) || true;
+            };
+        }
     };
 }
 
