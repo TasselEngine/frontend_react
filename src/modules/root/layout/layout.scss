@@ -53,10 +53,12 @@
       box-shadow: 0 0 10px #acacac;
       background-color: white;
       padding: 5px;
+      transition: background-color 0.5s;
     }
     .layout-content-transparent {
       background-color: transparent;
       box-shadow: 0 0 10px transparent;
+      transition: background-color 0.2s;
     }
   }
 }
