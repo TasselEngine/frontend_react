@@ -26,7 +26,6 @@ export class CssResolver {
 
     public map(): string;
     public map(coll: { [key: string]: boolean }): string;
-    public map(exist_str: string): string;
     public map(series: Array<({ [key: string]: boolean } | string)>): string;
     public map(...args: any[]) {
         console.log(args);
