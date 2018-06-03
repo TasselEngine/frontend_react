@@ -1,92 +1,89 @@
-
-.tassel-layout-main{
-    display: flex;
-    justify-content: left;
-    font-family: "NativeCenturyGothic","Microsoft YaHei";
-    background: #cecece;
-
-    .left{
-        width: 360px;
-        height: 100vh;
+.tassel-layout-main {
+  display: flex;
+  justify-content: left;
+  font-family: "NativeCenturyGothic", "Microsoft YaHei";
+  background: #cecece;
+  .left {
+    width: 360px;
+    height: 100vh;
+  }
+  .right {
+    flex: 1;
+  }
+  .layout-slider {
+    transition: 0.8s;
+    height: calc(100vh - 10px);
+    margin-top: 5px;
+    margin-left: 5px;
+    box-shadow: 0 0 10px #acacac;
+    .slider-inner {
+      height: calc(100% - 42px);
+      padding-top: 30px;
+      text-align: center;
     }
-
-    .right{
-        flex: 1;
-    }
-
-    .layout-slider {
-        transition: 0.8s;
-        height: calc(100vh - 10px); 
-        margin-top:5px;
-        margin-left:5px;
-        box-shadow: 0 0 10px #acacac;
-
-        .slider-inner {
-            height: calc(100% - 42px);
-            padding-top:30px;
-            text-align: center;
-        }
-    }
-    
-    .layout-content {
-        height: calc(100vh - 10px);
-        margin-top:5px;
-        margin-left:10px;
-        margin-right:5px;
-        box-shadow: 0 0 10px #acacac;
-        background-color: white;
-        padding:5px;
-    }
+  }
+  .layout-content {
+    height: calc(100vh - 10px);
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 5px;
+    box-shadow: 0 0 10px #acacac;
+    background-color: white;
+    padding: 5px;
+  }
+  .layout-content-transparent {
+    background-color: transparent;
+    box-shadow: 0 0 10px transparent;
+  }
 }
 
-.main-icon{
-    height: 160px;
-    border-radius: 50%;
+.main-icon {
+  height: 160px;
+  border-radius: 50%;
 }
 
-.name-title{
-    margin-top: 4px;
-    font-size: 14px;
-    color:#888;
+.name-title {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #888;
 }
 
-.legend-title{
-    margin-left: 18px;
-    margin-top: 8px;
-    font-size: 32px;
-    font-weight: 700;
-    color:#686868;
+.legend-title {
+  margin-left: 18px;
+  margin-top: 8px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #686868;
 }
 
 .slider-ul {
-    margin-top: 24px;
+  margin-top: 24px;
 }
 
 .slider-ul p {
-    line-height: 2em;
-    font-size: 20px;
-    font-weight: 700;
+  line-height: 2em;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .dark-scope {
-    color:#fff;
-    background-color: #282828;
-    .name-title{
-        color:#fff;
-    }
-    .legend-title{
-        color:#fff;
-    }
+  color: #fff;
+  background-color: #282828;
+  .name-title {
+    color: #fff;
+  }
+  .legend-title {
+    color: #fff;
+  }
 }
 
 .light-scope {
-    color:#000;
-    background-color: #fff;
-    .name-title{
-        color:#888;
-    }
-    .legend-title{
-        color:#686868;
-    }
-    
+  color: #000;
+  background-color: #fff;
+  .name-title {
+    color: #888;
+  }
+  .legend-title {
+    color: #686868;
+  }
 }

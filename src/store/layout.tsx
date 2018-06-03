@@ -5,6 +5,16 @@ export enum LayoutType {
     Management = 1
 }
 
+export enum AppTheme {
+    Light = 'light',
+    Dark = 'dark'
+}
+
+export enum PageBackground {
+    Transparent = 'transparent',
+    Default = 'default'
+}
+
 export interface NavigeItem {
     path: string;
     label: string;
@@ -29,6 +39,22 @@ const manageGroup: NavigeItem[] = [
 ];
 
 @Store()
+export class ApplicationState {
+
+    @Observable()
+    private theme: AppTheme = AppTheme.Light;
+
+    @Computed()
+    public get isLightTheme() { return this.theme === AppTheme.Light; }
+
+    @Action()
+    public changeTheme(theme: AppTheme) {
+        this.theme = theme;
+    }
+
+}
+
+@Store()
 export class LeftContainer {
 
     @Observable()
@@ -43,6 +69,22 @@ export class LeftContainer {
     @Action()
     public changeType(type: LayoutType) {
         this.type = type;
+    }
+
+}
+
+@Store()
+export class PageState {
+
+    @Observable()
+    private background: PageBackground = PageBackground.Default;
+
+    @Computed()
+    public get isTransparent() { return this.background === PageBackground.Transparent; }
+
+    @Action()
+    public changeBackground(background: PageBackground) {
+        this.background = background;
     }
 
 }
