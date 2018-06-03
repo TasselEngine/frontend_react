@@ -3,6 +3,7 @@ import css from "./main.scss";
 import { NavigationBase, parse, TransparentPage, Reactive } from "@utils";
 import { Waterfall } from "@modules/commons/waters";
 import { Card } from "@modules/commons/cards";
+import { SafeImage } from "@modules/commons/image";
 
 const { bind, map } = parse(css);
 
@@ -20,7 +21,7 @@ const template = (props: { data: IModel }) => (
             {
                 !!props.data.Cover ? (
                     <div className={bind("cover")}>
-                        <img width="100%" src={props.data.Cover} />
+                        <SafeImage width="100%" src={props.data.Cover} />
                     </div>
                 ) : null
             }

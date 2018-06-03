@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { LeftContainer, PageState } from "@stores/layout";
 import { parse, StoreComponent, Reactive, ReactiveComponent, DEBUG, AlwaysUpdate } from "@utils";
 import { SafeImage } from "@modules/commons/image";
+import { Icon } from "@modules/commons/icon";
 
 const { bind, select, map } = parse(csses);
 

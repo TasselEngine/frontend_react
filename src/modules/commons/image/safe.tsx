@@ -45,8 +45,8 @@ export class CommonSafeImage extends React.PureComponent<SafeImageProps, { loade
       height: height
     };
     const placeholderStyles = {
-      width: placeholderWidth,
-      height: placeholderHeight
+      width: placeholderWidth || width,
+      height: placeholderHeight || height
     };
     const imageCss = map([{ "safe-image": true }, className || ""]);
     return (
