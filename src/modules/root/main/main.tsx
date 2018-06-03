@@ -15,7 +15,7 @@ interface IModel {
 }
 
 const template = (props: { data: IModel }) => (
-    <Card padding="6px 6px 18px 6px" minHeight="80px">
+    <Card padding="6px 6px 18px 6px" margin="4px 4px 8px 4px" minHeight="80px">
         <div key="content" className={bind("card-container")}>
             {
                 !!props.data.Cover ? (

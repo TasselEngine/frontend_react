@@ -1,13 +1,12 @@
-
 .card {
-    display: block;
-    margin: 4px;
-    padding:4px;
-    background: #fff;
-    border-radius: 2px;
-    transition: 0.8s;
-    box-shadow: 2px 2px 12px #b0b0b0;
-    &:hover {
-        box-shadow: 2px 2px 12px #707070;
-    }
+  display: block;
+  margin: 4px;
+  padding: 4px;
+  background: #fff;
+  border-radius: 2px;
+  transition: 0.8s;
+  box-shadow: 2px 2px 12px #b0b0b0;
+  &:hover {
+    box-shadow: 2px 2px 12px #707070;
+  }
 }

@@ -4,10 +4,13 @@
   font-family: "NativeCenturyGothic", "Microsoft YaHei";
   background: #cecece;
   .left {
-    width: 360px;
+    max-width: 360px;
     height: 100vh;
+    transition: max-width 0.5s;
     .layout-slider {
-      transition: 0.8s;
+      overflow: hidden;
+      width: 360px;
+      transition: 0.5s;
       height: calc(100vh - 10px);
       margin-top: 5px;
       margin-left: 5px;
@@ -43,7 +46,18 @@
       }
     }
   }
+  @media(max-width:768px) {
+    .left {
+      max-width: 0;
+      .layout-slider {
+        width: 0;
+      }
+    }
+  }
   .right {
+    max-height: 100vh;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
     flex: 1;
     .layout-content {
       height: calc(100vh - 10px);
