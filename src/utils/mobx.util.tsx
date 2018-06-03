@@ -50,6 +50,7 @@ const _relations = new InjectableStoreContainer();
 
 /** the stores for Provider component. */
 const _stores: { [key: string]: any } = {};
+console.log(_stores);
 
 export type IStoreClass<T> = IConstructor<T>;
 
@@ -108,7 +109,7 @@ export function AlwaysUpdate() {
  */
 export function Store(name?: string) {
     return function <T>(target: IConstructor<T>) {
-        const selector = name || uuid();
+        const selector = name || `STATE-${target.name}-${uuid()}`;
         _relations.add(target, selector);
         _stores[selector] = new target();
         return target as IStoreClass<T>;
