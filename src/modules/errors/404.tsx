@@ -1,7 +1,6 @@
 import React from "react";
 import { NavigationBase, Reactive } from "@utils";
 
-@Reactive()
 export class Page404 extends NavigationBase {
 
     constructor(props: {}) {

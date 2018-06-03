@@ -27,7 +27,6 @@ class InjectableStoreContainer {
         if (this.relations.get(type)) {
             throw new Error("duplicate store.");
         } else {
-            console.log(`add inject [${name}] : [${type.name}]`);
             this.relations.set(type, name);
         }
     }

@@ -35,7 +35,6 @@ const template = (props: { data: IModel }) => (
     </Card>
 );
 
-@Reactive()
 export class TasselMain extends TransparentPage {
 
     constructor(props: any) {

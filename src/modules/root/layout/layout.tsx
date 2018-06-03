@@ -49,12 +49,9 @@ class TasselLeft extends StoreComponent {
 @AlwaysUpdate()
 export class TasselLayout extends StoreComponent {
 
-    private get pageState(): PageState { return this.getStore(PageState); }
+    private pageState = this.getStore(PageState);
 
     render() {
-        console.log(this.props);
-        DEBUG();
-        console.log("render");
         const contentClass = map({
             'layout-content': true,
             'layout-content-transparent': this.pageState.isTransparent
