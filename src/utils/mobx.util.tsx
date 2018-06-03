@@ -64,9 +64,9 @@ export type IStoreClass<T> = IConstructor<T>;
  * @param {IConstructor<T>} type the store constructor
  * @returns  {T|null} instance
  */
-export function getStore<T>(type: IConstructor<T>): T | null {
+export function getStore<T>(type: IConstructor<T>): T | undefined {
     const key = _relations.get(type) as string;
-    return !!key ? _stores[key] : null;
+    return !!key ? _stores[key] : undefined;
 }
 
 /**
@@ -137,11 +137,17 @@ export function Action() {
 export class StoreComponent<P= {}, S= {}, SS = never> extends React.Component<P, S, SS> {
 
     private _storeMaps!: Map<IConstructor<any>, any>;
-    /** get store with it's constructor */
-    protected getStore<T>(type: IConstructor<T>): T { return this._storeMaps.get(type) || null; }
 
     constructor(props: any) {
         super(props);
+    }
+
+    /** get store with it's constructor */
+    protected getStore<T>(type: IConstructor<T>): T {
+        if (!this._storeMaps) {
+            return getStore(type) as T;
+        }
+        return this._storeMaps.get(type) || undefined;
     }
 
 }

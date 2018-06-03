@@ -2,6 +2,7 @@ import React from "react";
 import * as H from "history";
 import { LayoutType, LeftContainer, PageBackground, AppTheme, PageState, ApplicationState } from "@stores/layout";
 import { StoreComponent, getStore } from "./mobx.util";
+import { TasselComponent } from "@utils/base.util";
 
 /**
  * Navigation Properties Struct
@@ -44,18 +45,14 @@ export interface NavigationProps {
  * @template S state
  * @template SS -
  */
-export class NavigationBase<P = {}, S = {}, SS = never> extends React.Component<(P & NavigationProps), S, SS> {
+export class NavigationBase<P = {}, S = {}, SS = never> extends TasselComponent<(P & NavigationProps), S, SS> {
 
     private _query = {};
-    private _leftState?: LeftContainer;
-    private _pageState?: PageState;
-    private _appState?: ApplicationState;
+    private _leftState: LeftContainer = this.getStore(LeftContainer);
+    private _pageState: PageState = this.getStore(PageState);
 
     protected get queries() { return this._query; }
     protected get params() { return this.props.match.params; }
-
-    protected get isLightTheme() { return this._appState && this._appState.isLightTheme; }
-    protected get isPageTransparent() { return this._pageState && this._pageState.isTransparent; }
 
     constructor(props: any) {
         super(props);
@@ -65,25 +62,13 @@ export class NavigationBase<P = {}, S = {}, SS = never> extends React.Component<
     }
 
     protected changePageType(state: LayoutType) {
-        const left = this._leftState || (this._leftState = getStore(LeftContainer) as LeftContainer);
-        if (left) {
-            left.changeType(state);
-        }
+        this._leftState && this._leftState.changeType(state);
     }
 
     protected changeBackgroundState(state: PageBackground) {
-        const page = this._pageState || (this._pageState = getStore(PageState) as PageState);
-        if (page) {
-            page.changeBackground(state);
-        }
+        this._pageState && this._pageState.changeBackground(state);
     }
 
-    protected changeTheme(state: AppTheme) {
-        const app = this._appState || (this._appState = getStore(ApplicationState) as ApplicationState);
-        if (app) {
-            app.changeTheme(state);
-        }
-    }
 }
 
 /**
@@ -94,12 +79,12 @@ export class NavigationBase<P = {}, S = {}, SS = never> extends React.Component<
  * @author Big Mogician
  * @export
  * @class ManagementBase
- * @extends {(NavigationBase<(P & NavigationProps), S, SS>)}
+ * @extends {(NavigationBase<P, S, SS>)}
  * @template P props
  * @template S state
  * @template SS -
  */
-export class ManagementBase<P = {}, S = {}, SS = never> extends NavigationBase<(P & NavigationProps), S, SS> {
+export class ManagementBase<P = {}, S = {}, SS = never> extends NavigationBase<P, S, SS> {
 
     constructor(props: any) {
         super(props);
@@ -108,7 +93,7 @@ export class ManagementBase<P = {}, S = {}, SS = never> extends NavigationBase<(
 
 }
 
-export class TransparentPage<P = {}, S = {}, SS = never> extends NavigationBase<(P & NavigationProps), S, SS> {
+export class TransparentPage<P = {}, S = {}, SS = never> extends NavigationBase<P, S, SS> {
 
     constructor(props: any) {
         super(props);

@@ -9,12 +9,13 @@ const { bind, select, map } = parse(csses);
 @Reactive(LeftContainer)
 class TasselLeft extends StoreComponent {
 
+    private leftState: LeftContainer = this.getStore(LeftContainer);
+
     render() {
-        const data = this.getStore(LeftContainer);
         const mainStyle = map({
             "layout-slider": true,
-            "light-scope": data.isCommon,
-            "dark-scope": !data.isCommon
+            "light-scope": this.leftState.isCommon,
+            "dark-scope": !this.leftState.isCommon
         });
         return (
             <div className={mainStyle}>
@@ -28,7 +29,7 @@ class TasselLeft extends StoreComponent {
                     </p>
                     {
                         <ul className={bind("slider-ul")}>
-                            {data.list.map((item, index) => (
+                            {this.leftState.list.map((item, index) => (
                                 <li key={index}>
                                     <p>
                                         <Link to={item.path}>{item.label}</Link>
