@@ -5,7 +5,7 @@ import { parse } from "@utils";
 
 const { bind, map } = parse(css);
 
-export interface CommonCardProps {
+interface CommonCardProps {
     padding?: string;
     margin?: string;
     background?: string;

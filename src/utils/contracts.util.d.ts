@@ -21,3 +21,6 @@ declare interface IConstructor<T> {
     new(...args: any[]): T;
 }
 
+// declare interface Readonly<T> {
+//     [prop: string]: any;
+// }

@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { LeftContainer, PageState } from "@stores/layout";
 import { parse, StoreComponent, Reactive, ReactiveComponent, DEBUG, AlwaysUpdate } from "@utils";
+import { SafeImage } from "@modules/commons/image";
 
 const { bind, select, map } = parse(csses);
 
@@ -20,7 +21,7 @@ class TasselLeft extends StoreComponent {
         return (
             <div className={mainStyle}>
                 <div className={bind("slider-inner")}>
-                    <img className={bind("main-icon")} src="assets/img/icon.jpg" />
+                    <SafeImage className={bind("main-icon")} src="assets/img/icon.jpg" />
                     <p className={bind("name-title")}>
                         <span >Big Mogician</span>
                     </p>

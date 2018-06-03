@@ -1,11 +1,11 @@
 import React from "react";
 
-export interface XLabelProps {
+interface XLabelProps {
     value: string;
     color?: string;
 }
 
-export interface XLabelState {
+interface XLabelState {
     value: string;
     style: any;
 }

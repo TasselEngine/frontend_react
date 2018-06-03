@@ -6,7 +6,7 @@ import { parse } from "@utils";
 
 const { bind, map } = parse(css);
 
-export interface FallProps {
+interface FallProps {
     width?: number | string;
     data?: any;
     datas?: Array<any>;
