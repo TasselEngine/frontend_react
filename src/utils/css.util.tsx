@@ -10,8 +10,21 @@ export class CssResolveError extends Error {
 export function parse(css: { [key: string]: string }) {
     const newC = new CssResolver(css || {});
     return {
+        /** Bind CSS with provided class names
+         * ---
+         * class names from css/scss file directly.
+         */
         bind: newC.bind(newC.name),
+        /**
+         * Select CSS with provided class name
+         * ---
+         * conect fluently.
+         */
         select: newC.bind(newC.select),
+        /**
+         * Map CSS in many ways
+         * ---
+         */
         map: newC.bind(newC.map)
     };
 }
