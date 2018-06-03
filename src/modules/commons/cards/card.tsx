@@ -10,6 +10,7 @@ interface CommonCardProps {
     margin?: string;
     background?: string;
     minHeight?: string;
+    className?: string;
 }
 
 export class CommonCard extends React.PureComponent<CommonCardProps> {
@@ -20,11 +21,16 @@ export class CommonCard extends React.PureComponent<CommonCardProps> {
             background,
             margin,
             minHeight,
+            className
         } = this.props;
         const children: Array<JSX.Element> = this.parseChildren(this.props.children);
         console.log(children);
+        const cardCss = map([
+            { "card": true },
+            className || "",
+        ]);
         return (
-            <div style={({ padding, background, margin, minHeight, })} className={bind("card")}>
+            <div style={({ padding, background, margin, minHeight, })} className={cardCss}>
                 <>{children.find(i => i.key === "header")}</>
                 <>{children.find(i => i.key === "content")}</>
             </div>

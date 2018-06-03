@@ -22,7 +22,7 @@ class TasselLeft extends StoreComponent {
         return (
             <div className={mainStyle}>
                 <div className={bind("slider-inner")}>
-                    <SafeImage className={bind("main-icon")} src="assets/img/icon.jpg" />
+                    <SafeImage className={bind("main-icon")} src="assets/img/icon.jpg" phFontSize={48} phBackColor="#686868" phColor="#fff" />
                     <p className={bind("name-title")}>
                         <span >Big Mogician</span>
                     </p>

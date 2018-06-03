@@ -16,12 +16,12 @@ interface IModel {
 }
 
 const template = (props: { data: IModel }) => (
-    <Card padding="6px 6px 18px 6px" margin="4px 4px 8px 4px" minHeight="80px">
+    <Card className={bind("main-card")} padding="6px 6px 18px 6px" margin="6px 6px 12px 6px" minHeight="80px">
         <div key="content" className={bind("card-container")}>
             {
                 !!props.data.Cover ? (
                     <div className={bind("cover")}>
-                        <SafeImage width="100%" src={props.data.Cover} />
+                        <SafeImage width="100%" phMinHeight="240px" src={props.data.Cover} phFontSize={64} />
                     </div>
                 ) : null
             }
